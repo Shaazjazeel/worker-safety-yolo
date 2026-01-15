@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worker Safety Monitoring System</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+<div class="ambient-glow"></div>
+
+<header class="site-header header-animate">
+    <div class="header-glow"></div>
+
+    <div class="container header-content">
+        <div class="logo-area">
+            <span class="status-indicator"></span>
+
+            <h1 class="typing-title">
+                <span class="typing-text">Worker Safety <span class="highlight">Monitor</span></span>
+            </h1>
+        </div>
+
+        <div class="header-nav">System Active</div>
+    </div>
+</header>
+
+<main class="main-content">
+<div class="container">
+
+    <!-- UPLOAD SECTION -->
+    <section class="upload-section">
+
+        <!-- SUMMARY CARD -->
+        <div class="tool-description summary-animate">
+            <div class="tool-header">
+                <span class="tool-icon">🛡️</span>
+                <span class="tool-title">AI Safety Intelligence</span>
+            </div>
+            <p>
+                This system analyzes CCTV or workplace video footage using AI to detect
+                safety violations such as missing protective equipment or unsafe behavior.
+            </p>
+        </div>
+
+        <div class="section-header">
+            <h2>Input Source</h2>
+            <p class="section-subtitle">Upload CCTV footage for safety analysis</p>
+        </div>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="video" id="videoInput" hidden required>
+
+            <label for="videoInput" class="upload-label" id="uploadLabel">
+                ⬆ Click to Upload Footage
+            </label>
+
+            <div class="file-info" id="fileInfo">
+                <span class="file-dot"></span>
+                <span class="file-name" id="fileNameText">No file selected</span>
+            </div>
+
+            <div class="action-area">
+                <button class="process-btn" type="submit" id="processBtn">
+                    <span class="btn-icon" id="btnIcon">🚀</span>
+                    <span class="btn-text" id="btnText">Process Video</span>
+                    <span class="btn-spinner" id="btnSpinner"></span>
+                </button>
+            </div>
+        </form>
+    </section>
+
+    <!-- ANALYSIS OUTPUT -->
+    <section class="analysis-card analysis-animate">
+        <div class="analysis-header">
+            <span class="analysis-badge">AI ANALYSIS</span>
+            <h2>Live Safety Monitoring</h2>
+            <p>PPE compliance and safety violation detection</p>
+        </div>
+
+        <div class="analysis-body">
+            {% if input_video %}
+                <img src="{{ url_for('video_feed', filename=input_video) }}" class="analysis-video">
+            {% else %}
+                <div class="analysis-placeholder">
+                    Upload a video to start live safety analysis
+                </div>
+            {% endif %}
+        </div>
+    </section>
+
+</div>
+</main>
+
+<footer class="site-footer">
+    <p class="credit">Designed & Developed by <strong>Shaaz Jazeel</strong></p>
+</footer>
+
+<script>
+/* Selected file name + upload glow */
+const videoInput = document.getElementById("videoInput");
+const fileNameText = document.getElementById("fileNameText");
+const fileInfo = document.getElementById("fileInfo");
+const uploadLabel = document.getElementById("uploadLabel");
+
+videoInput.addEventListener("change", () => {
+  if (videoInput.files.length > 0) {
+    fileNameText.innerText = videoInput.files[0].name;
+    fileInfo.classList.add("file-selected");
+    uploadLabel.classList.add("upload-selected");
+  } else {
+    fileNameText.innerText = "No file selected";
+    fileInfo.classList.remove("file-selected");
+    uploadLabel.classList.remove("upload-selected");
+  }
+});
+
+/* Button loading spinner + disable */
+const form = document.querySelector("form");
+const btn = document.getElementById("processBtn");
+const btnText = document.getElementById("btnText");
+const btnIcon = document.getElementById("btnIcon");
+const btnSpinner = document.getElementById("btnSpinner");
+
+if (form && btn) {
+  form.addEventListener("submit", () => {
+    btn.disabled = true;
+    btn.classList.add("is-loading");
+    btnText.innerText = "Processing...";
+    btnIcon.style.display = "none";
+    btnSpinner.style.display = "inline-block";
+  });
+}
+</script>
+
+</body>
+</html>
