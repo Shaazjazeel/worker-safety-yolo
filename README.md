@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/banner.jpg" alt="Worker Safety Monitoring System Banner" width="100%" />
+</p>
+
 # 🛡️ Worker Safety Monitoring System (YOLOv8)
 
 ![Python](https://img.shields.io/badge/Python-3.10%2B-blue)
