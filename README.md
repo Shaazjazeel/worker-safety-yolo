@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.jpg" alt="Worker Safety Monitoring System Banner" width="100%" />
+  <img src="assets/banner.jpeg" alt="Worker Safety Monitoring System Banner" width="100%" />
 </p>
 
 # 🛡️ Worker Safety Monitoring System (YOLOv8)
