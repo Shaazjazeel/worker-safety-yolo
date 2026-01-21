@@ -1,7 +1,6 @@
 <p align="center">
   <img src="assets/banner.jpeg" alt="Worker Safety Monitoring System Banner" width="100%" />
 </p>
-
 <div align="center">
 
   <h1>WORKER SAFETY MONITORING SYSTEM</h1>
@@ -16,8 +15,7 @@
     <img src="https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white" alt="Flask" />
     <img src="https://img.shields.io/badge/YOLOv8-Ultralytics-00FFFF?style=for-the-badge&logo=yolo&logoColor=black" alt="YOLOv8" />
     <img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white" alt="OpenCV" />
-    <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="License" />
-    <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status" />
+		<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch">
   </p>
 
   <br />
@@ -27,17 +25,19 @@
 
 ## 📑 Table of Contents
 
-- [📖 Overview](#-overview)
-- [✨ Key Features](#-key-features)
-- [🛠️ Tech Stack](#-tech-stack)
-- [🏗️ Project Architecture](#-project-architecture)
-- [📂 Project Structure](#-project-structure)
-- [🚀 Installation](#-installation)
-- [💡 Usage](#-usage)
-- [🧠 Model & Detected Classes](#-model--detected-classes)
-- [🔮 Future Improvements](#-future-improvements)
-- [📄 License](#-license)
-- [🤝 Acknowledgements](#-acknowledgements)
+| &nbsp; | Section | Description |
+|:---:|:---|:---|
+| 📖 | [**Overview**](#-overview) | _Project summary and core objectives_ |
+| ✨ | [**Key Features**](#-key-features) | _Main capabilities of the system_ |
+| 🛠️ | [**Tech Stack**](#-tech-stack) | _Tools and technologies used_ |
+| 🏗️ | [**Project Architecture**](#-project-architecture) | _Flow of data and processing_ |
+| 📂 | [**Project Structure**](#-project-structure) | _File organization tree_ |
+| 🚀 | [**Installation**](#-installation) | _Setup guide and requirements_ |
+| 💡 | [**Usage**](#-usage) | _How to run the application_ |
+| 🧠 | [**Model & Classes**](#-model--detected-classes) | _Detected objects and alerts_ |
+| 🔮 | [**Future Improvements**](#-future-improvements) | _Roadmap and upcoming features_ |
+| 📄 | [**License**](#-license) | _Usage rights and MIT license_ |
+| 🤝 | [**Acknowledgements**](#-acknowledgements) | _Credits and resources_ |
 
 ---
 
@@ -102,3 +102,74 @@ worker-safety-yolo/
 │   └── index.html        # Main dashboard interface
 ├── README.md             # Project documentation
 └── .gitignore            # Git ignore file
+```
+## 🚀 Installation
+
+Follow these steps to set up the project locally:
+
+### 1) Clone the Repository
+```bash
+git clone https://github.com/your-username/worker-safety-yolo.git
+cd worker-safety-yolo
+```
+### 2) Create a Virtual Environment (Optional but Recommended)
+```bash
+python -m venv venv
+# Windows
+venv\Scripts\activate
+# macOS/Linux
+source venv/bin/activate
+```
+### 3) Install Dependencies
+```bash
+pip install -r requirements.txt
+```
+### 4) Add Model Weights Ensure your fine-tuned model best.pt is placed inside the weights/ directory.
+## 💡 Usage
+### 1) Run the Application
+```bash
+python app.py
+```
+### 2) Access the Interface Open your web browser and navigate to: http://127.0.0.1:5000/
+
+### 3) Analyze Video
+
+Click the Upload button to select a construction site video.
+
+Watch the processed video stream with real-time bounding boxes and violation alerts.
+
+## 🧠 Model & Detected Classes
+The model has been trained on the Construction Site Safety Dataset (Kaggle/Roboflow) and can detect the following classes:
+| Class ID | Class Name | Status |
+| :---: | :--- | :--- |
+| 0 | **Person** | 🟢 Neutral |
+| 1 | **Hardhat** | ✅ Safe |
+| 2 | **NO-Hardhat** | 🔴 **VIOLATION** |
+| 3 | **Mask** | ✅ Safe |
+| 4 | **NO-Mask** | 🔴 **VIOLATION** |
+| 5 | **Safety Vest** | ✅ Safe |
+| 6 | **NO-Safety Vest** | 🔴 **VIOLATION** |
+| 7 | **Machinery** | 🟡 Caution |
+| 8 | **Vehicle** | 🟡 Caution |
+| 9 | **Safety Cone** | 🔵 Info |
+
+## 🔮 Future Improvements
+[ ] Live Webcam Support: Enable real-time detection via RTSP or webcam feeds.
+
+[ ] Email/SMS Notifications: Send automated alerts to supervisors when violations are detected.
+
+[ ] Database Integration: Log violations with timestamps and snapshots for reporting.
+
+[ ] Mobile App: Develop a companion mobile application for on-site monitoring.
+
+[ ] Dashboard Analytics: Add graphs and charts to visualize safety trends over time.
+
+## 
+<div align="center">
+  <p>Designed & Developed by <b>Shaaz Jazeel</b></p>
+  <p>
+    <a href="https://github.com/Shaazjazeel">
+      <img src="https://img.shields.io/badge/GitHub-Profile-black?style=flat&logo=github" alt="GitHub" />
+    </a>
+  </p>
+</div>
