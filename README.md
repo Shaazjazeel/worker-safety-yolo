@@ -35,9 +35,6 @@
 | 🚀 | [**Installation**](#-installation) | _Setup guide and requirements_ |
 | 💡 | [**Usage**](#-usage) | _How to run the application_ |
 | 🧠 | [**Model & Classes**](#-model--detected-classes) | _Detected objects and alerts_ |
-| 🔮 | [**Future Improvements**](#-future-improvements) | _Roadmap and upcoming features_ |
-| 📄 | [**License**](#-license) | _Usage rights and MIT license_ |
-| 🤝 | [**Acknowledgements**](#-acknowledgements) | _Credits and resources_ |
 
 ---
 
